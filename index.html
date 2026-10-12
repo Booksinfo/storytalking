@@ -64,7 +64,7 @@ header.top a{color:#fff;text-shadow:0 1px 4px rgba(11,22,48,.8);font-size:14px;m
 .brand-line{font-family:var(--serif);color:var(--gold-l);font-size:clamp(15px,4vw,19px);letter-spacing:.08em;margin:0 0 6px;font-weight:500}
 .brand-main{font-family:var(--serif);font-weight:900;font-size:clamp(31px,9.5vw,52px);line-height:1.25;margin:0 0 18px;letter-spacing:.02em;
   background:linear-gradient(180deg,#f6e7c1,#d4b06a 55%,#b08d57);-webkit-background-clip:text;background-clip:text;color:transparent}
-.brand-main .reg{font-size:.45em;vertical-align:top;position:relative;top:.15em}
+.brand-main .reg{font-size:.6em;vertical-align:top;position:relative;top:.05em;margin-left:.04em}
 .seminar{display:inline-block;border-top:1px solid var(--gold);border-bottom:1px solid var(--gold);padding:8px 14px;margin:0 0 20px;font-family:var(--serif);font-size:clamp(15px,4.4vw,22px);font-weight:700;letter-spacing:.06em}
 .seminar span{color:var(--gold-l)}
 .tagline{font-family:var(--serif);font-size:clamp(15px,3.8vw,19px);line-height:1.9;color:#e8ecf6;margin:0}
@@ -95,6 +95,18 @@ header.top a{color:#fff;text-shadow:0 1px 4px rgba(11,22,48,.8);font-size:14px;m
 .worries li{background:#fff;border-left:4px solid var(--red);padding:16px 20px;box-shadow:0 2px 8px rgba(20,38,74,.07)}
 @media(min-width:760px){.worries{grid-template-columns:1fr 1fr}}
 
+.cons{list-style:none;margin:0 0 8px;padding:0;display:grid;gap:10px}
+.cons li{background:#fff;border:1px solid var(--line);border-left:4px solid var(--red);padding:14px 18px}
+.cons b{display:block;font-family:var(--serif);color:var(--navy);font-size:17px}
+.cons span{font-size:14.5px;color:var(--ink-s)}
+.closing{font-family:var(--serif);color:var(--navy);font-size:clamp(16px,3.8vw,20px);line-height:2;text-align:center;margin:28px 0 0}
+.future{background:linear-gradient(180deg,#fff,var(--cream))}
+.fut{list-style:none;counter-reset:f;margin:0;padding:0;display:grid;gap:14px}
+.fut li{counter-increment:f;background:#fff;border:1px solid var(--line);border-top:3px solid var(--gold);padding:18px 18px 18px 64px;position:relative}
+.fut li:before{content:"0" counter(f);position:absolute;left:16px;top:14px;font-family:var(--serif);font-size:26px;font-weight:700;color:var(--gold)}
+.fut h3{font-size:17px;margin:0 0 6px}
+.fut p{margin:0;font-size:14.5px;color:var(--ink-s)}
+@media(min-width:760px){.fut{grid-template-columns:1fr 1fr}}
 /* compare */
 .case-head{font-family:var(--serif);color:var(--navy);font-size:19px;margin:24px 0 14px;display:flex;align-items:center;gap:10px}
 .case-head small{font-family:var(--sans);font-size:13px;color:var(--ink-s)}
@@ -134,6 +146,14 @@ header.top a{color:#fff;text-shadow:0 1px 4px rgba(11,22,48,.8);font-size:14px;m
 .learn p{margin:0;font-size:15px}
 @media(min-width:760px){.learn{grid-template-columns:repeat(3,1fr)}.learn li{padding:56px 20px 20px}.learn li:before{top:14px}}
 
+.gift{background:var(--navy-d);color:#fff}
+.gift h2{color:#fff}.gift .eyebrow{color:var(--gold-l)}
+.gifts{list-style:none;margin:28px 0 0;padding:0;display:grid;gap:14px}
+.gifts li{border:1px solid var(--gold);background:rgba(255,255,255,.05);padding:20px}
+.gifts .gno{display:inline-block;background:var(--red);color:#fff;font-size:13px;font-weight:700;padding:2px 12px;margin-bottom:10px}
+.gifts h3{color:var(--gold-l);font-size:18px}
+.gifts p{margin:0;color:#e8ecf6;font-size:15px}.gifts b{color:#fff}
+@media(min-width:900px){.gifts{grid-template-columns:repeat(3,1fr)}}
 /* profile */
 .profile{display:grid;gap:28px;align-items:start}
 .photo{width:210px;aspect-ratio:1;border-radius:50%;overflow:hidden;margin:0 auto;border:4px solid #fff;box-shadow:0 0 0 2px var(--gold),0 10px 24px rgba(20,38,74,.2)}
@@ -185,6 +205,12 @@ header.top a{color:#fff;text-shadow:0 1px 4px rgba(11,22,48,.8);font-size:14px;m
 footer{background:#070e20;color:#aab3c7;font-size:13px;padding:32px 0 100px;line-height:1.9;text-align:center}
 footer a{color:var(--gold-l)}
 
+.notice{background:#fff;border:1px solid var(--gold);border-left:4px solid var(--red);padding:16px 20px;margin:0 0 28px;font-size:15px}
+.notice>b{display:block;font-family:var(--serif);color:var(--navy);font-size:17px;margin-bottom:6px}
+.notice ul{margin:0;padding-left:1.2em}
+.notice li{margin-bottom:.5em}
+.agree{font-size:13px;color:var(--ink-s);line-height:1.8;margin:18px 0 0;text-align:center}
+.agree.on-dark,.agree.on-dark a{color:#c3cadb}
 /* sticky */
 .sticky{position:fixed;left:0;right:0;bottom:0;z-index:50;padding:10px 16px calc(10px + env(safe-area-inset-bottom));background:rgba(11,22,48,.94);box-shadow:0 -2px 12px rgba(0,0,0,.25);transition:transform .2s}
 .sticky.hide{transform:translateY(110%)}
@@ -238,14 +264,50 @@ footer a{color:var(--gold-l)}
 <section>
   <div class="wrap narrow">
     <p class="eyebrow">PROBLEM</p>
-    <h2>こんな場面で、<br>もどかしさを感じたことはありませんか。</h2>
+    <h2>こんなお悩み、<br>ありませんか？</h2>
+    <p>伝え方ひとつで、「あなたの価値」はまだまだ届けられます。</p>
     <ul class="worries">
-      <li>想いはあるのに、いざ話すとうまく言葉にならない。</li>
-      <li>自己紹介で何を話せばよいか分からず、説明が長くなる。</li>
-      <li>自分の商品や活動の魅力を、もっと伝えたい。</li>
-      <li>経験を話しても、相手との距離が縮まった感じがしない。</li>
+      <li>いい商品・サービスなのに、なぜか「検討します」で終わってしまう</li>
+      <li>一生懸命説明するほど、相手の反応が薄くなっていく気がする</li>
+      <li>価格の話になると、「価値」で選ばれている実感が持てない</li>
+      <li>AIで文章は作れても、心に残る「自分の言葉」になっていない</li>
+      <li>自己紹介や商品説明が、毎回同じような言い回しになってしまう</li>
+      <li>人前で話すと緊張して、伝えたいことの半分も話せない</li>
+      <li>想いはあるのに、いざ話すとうまく言葉にならない</li>
+      <li>経験を話しても、相手との距離が縮まった感じがしない</li>
     </ul>
-    <p style="margin-top:28px">仕事の場でも、日常の会話でも。まずは「話してみる」ところから、始めてみませんか。</p>
+  </div>
+</section>
+
+<section class="cream">
+  <div class="wrap narrow">
+    <p class="eyebrow">IF LEFT AS IT IS</p>
+    <h2>相手の感情を動かす<br>「伝わる話し方」が<br>できていないのかもしれません。</h2>
+    <p>そうなると――</p>
+    <ul class="cons">
+      <li><b>共感を得られず、聞き流されてしまう</b><span>どんなに良い内容でも、感情に訴えかけなければ人は動きません。</span></li>
+      <li><b>記憶に残らない</b><span>情報だけでは、すぐに忘れ去られてしまいます。</span></li>
+      <li><b>信頼関係が築きにくい</b><span>個人的なつながりや人間味が感じられないと、相手との距離は縮まりません。</span></li>
+      <li><b>行動を促せない</b><span>人が行動を起こすきっかけは、論理だけでは不十分です。感情を揺さぶる要素が不可欠です。</span></li>
+      <li><b>結局、伝えたいことが伝わらない</b><span>情報が羅列されるだけでは、最も重要なメッセージが埋もれてしまいます。</span></li>
+    </ul>
+    <p class="closing">あなたの熱意や素晴らしいアイデアも、伝わらない話し方では残念ながら<br>「なかったこと」になってしまうのです。</p>
+  </div>
+</section>
+
+<section class="future">
+  <div class="wrap">
+    <p class="eyebrow">YOUR FUTURE</p>
+    <h2>話し方を変え、ストーリーを取り入れると<br>こんな未来が待っています</h2>
+    <ol class="fut">
+      <li><h3>聞き手の心を一瞬で掴み、惹きつけられる</h3><p>あなたの話に、誰もが前のめりになって耳を傾けるようになります。</p></li>
+      <li><h3>記憶に残るメッセージが伝えられる</h3><p>一度聞いただけで、あなたの話が深く心に刻まれます。</p></li>
+      <li><h3>共感を呼び、強い信頼関係が築ける</h3><p>聞き手はあなたに親近感を抱き、感情的に結びつきます。</p></li>
+      <li><h3>人を動かし、行動を促すことができる</h3><p>あなたの言葉が、ビジネスや人生のあらゆる場面で大きな影響力を持つようになります。</p></li>
+      <li><h3>自信を持って、どんな場所でも話せるようになる</h3><p>人前で話すことが、苦痛から喜びへと変わります。</p></li>
+      <li><h3>あなたの個性や人間性が輝き、オンリーワンの存在になれる</h3><p>あなただけのストーリーが、あなたをより魅力的に見せます。</p></li>
+    </ol>
+    <p class="note" style="text-align:center;margin-top:16px">※目指す方向をご紹介するもので、成果を保証するものではありません。</p>
   </div>
 </section>
 
@@ -256,7 +318,7 @@ footer a{color:var(--gold-l)}
     <h2>学ぶ前と学んだあと。<br>まずは、<em>声</em>で聴き比べてください。</h2>
     <p>上手か下手かを判定するものではありません。伝えたいことが、どう届くようになったか。ぜひご自身の耳で確かめてください。</p>
 
-    <div class="case-head">事例：Yさん <small>ストーリートーキングを学んだ前後の一例</small></div>
+    <div class="case-head">事例：Yさん <small>ストーリートーキング®を学んだ前後の一例</small></div>
     <div class="pair">
       <div class="clip before">
         <span class="tag">学ぶ前</span>
@@ -316,13 +378,27 @@ footer a{color:var(--gold-l)}
 <!-- ===== 05 内容 ===== -->
 <section class="cream">
   <div class="wrap">
-    <p class="eyebrow">PROGRAM</p>
-    <h2>1Dayで学ぶこと</h2>
+    <p class="eyebrow">CURRICULUM</p>
+    <h2>1Day体験セミナーで<br>身につく3つのこと</h2>
+    <p style="max-width:760px">“売り込まずに選ばれる”伝え方の入り口を、実践を通して体感いただけます。</p>
     <ol class="learn">
-      <li><h3>相手の心の扉を開く伝え方</h3><p>相手が耳を傾けたくなる伝え方を、実際に話しながら学びます。</p></li>
-      <li><h3>記憶に残る1分ストーリーのつくり方</h3><p>自分の経験や想いを、短いストーリーとして届ける方法を学びます。</p></li>
-      <li><h3>心の距離を縮める話し方</h3><p>相手とのつながりを意識し、信頼につなげる伝え方を練習します。</p></li>
+      <li><h3>聞き手を引き込む<br>ストーリーの作り方</h3><p>ストーリートーキング®の基本構成を、実例を通してインプット。</p></li>
+      <li><h3>感情を揺さぶる<br>言葉の選び方</h3><p>相手の心を動かす語彙・表現の選び方を体感的に学ぶ。</p></li>
+      <li><h3>印象に残る「伝わる」<br>話し方や表現のコツ</h3><p>一度聞いたら忘れられない、伝わる話し方の型を習得。</p></li>
     </ol>
+  </div>
+</section>
+
+<section class="gift">
+  <div class="wrap">
+    <p class="eyebrow">SPECIAL GIFT</p>
+    <h2>セミナー受講特典</h2>
+    <p style="max-width:760px">ご参加いただいた方に、今回だけの豪華特典をご用意しました。</p>
+    <ul class="gifts">
+      <li><span class="gno">特典 ①</span><h3>『惹きつける！仕事が取れる！行列ができる1分間自己紹介』説明動画</h3><p>自己紹介ひとつで印象が変わる、1分間自己紹介の作り方を動画で解説。</p></li>
+      <li><span class="gno">特典 ②</span><h3>実践テンプレート</h3><p>ご自身の商品・サービスにそのまま当てはめて使える、実践テンプレートをプレゼント。</p></li>
+      <li><span class="gno">特典 ③｜最後までご参加いただいた方限定</span><h3>30分ストーリートーキング®話し方レッスン</h3><p>ご参加いただいた回を最後までご視聴いただいた方に、宝来光子による個別レッスンをプレゼントします。<br><b>（通常価格 40,000円相当のレッスンをプレゼント！）</b></p></li>
+    </ul>
   </div>
 </section>
 
@@ -338,7 +414,7 @@ footer a{color:var(--gold-l)}
         <p class="pname">宝来光子<small>ほうらい みつこ</small></p>
         <p>株式会社belleVie 代表取締役／一般社団法人 夢を叶える話し方協会 代表理事。元ラジオパーソナリティ。</p>
         <p>イメージコンサルタントとして印象マネジメントや話し方トレーニングを行う業務を経て、現在は経営者・起業家・営業職などを対象に「ストーリーを作り、語り、売る」ノウハウを指導。一部上場企業の全社員研修をはじめ、研修・講演・セミナーの実績は多数。14年間で延べ3万5,000人以上を指導しています。</p>
-        <p>起業後、ビジネスがまったく軌道に乗らず、財布に残るのは1,000円。そんな“どん底”を経験したからこそ、突破口になった「ストーリーで話す力」を伝えています。ストーリートーキング講座の受講生は600名以上。</p>
+        <p>起業後、ビジネスがまったく軌道に乗らず、財布に残るのは1,000円。そんな“どん底”を経験したからこそ、突破口になった「ストーリーで話す力」を伝えています。ストーリートーキング®講座の受講生は600名以上。</p>
       </div>
     </div>
   </div>
@@ -349,7 +425,7 @@ footer a{color:var(--gold-l)}
   <div class="wrap">
     <p class="eyebrow">VOICE</p>
     <h2>体験した方の声をお聞きください。</h2>
-    <p style="max-width:760px">実際にストーリートーキングを体験した方の声を、動画でご紹介します。ご自身の想いや魅力を伝えるための一歩を考える参考に、ご覧ください。</p>
+    <p style="max-width:760px">実際にストーリートーキング®を体験した方の声を、動画でご紹介します。ご自身の想いや魅力を伝えるための一歩を考える参考に、ご覧ください。</p>
     <div class="player" id="ytPlayer">
       <button class="poster-btn" id="ytBtn" type="button" aria-label="お客様の声の動画を再生する">
         <span class="play"></span><span class="t">動画を見る</span>
@@ -382,15 +458,20 @@ footer a{color:var(--gold-l)}
       <tr><th>名称</th><td>ストーリートーキング® 1Dayセミナー</td></tr>
       <tr><th>講師</th><td>宝来光子</td></tr>
       <tr><th>参加費</th><td>3,300円（税込）</td></tr>
-      <tr><th>開催方法</th><td>オンライン／各回3時間（日本時間）</td></tr>
+      <tr><th>開催方法</th><td>オンライン（Zoom）／各回3時間（日本時間）</td></tr>
       <tr><th>定員</th><td>各回最大8名・先着順。定員に達し次第締切</td></tr>
-      <tr><th>参加条件</th><td>お顔を出して参加できる方</td></tr>
+      <tr><th>参加条件</th><td>実践形式のため、Zoomでお顔出し（カメラON）ができる方のみご参加いただけます。</td></tr>
       <tr><th>お支払い方法</th><td>クレジットカード または 銀行振込<br><span class="note">お申込み時にお選びください。</span></td></tr>
+      <tr><th>キャンセル・返金</th><td>原則として返金はいたしません。ただし、やむを得ない場合で別日程にお席が確保できるときは、振替できる場合がありますので、ご連絡ください。<br><a href="kiyaku.html#terms">受講規約・キャンセル規定を見る</a></td></tr>
+      <tr><th>銀行振込の期限</th><td>セミナー開始の<b>12時間前まで</b>に、指定の銀行口座への着金をお願いします。期限を過ぎると入金確認が間に合わず、参加手続きができません。12時間前を過ぎてのお申込みは、クレジットカード決済をご利用ください。</td></tr>
+      <tr><th>アーカイブ</th><td>録画・アーカイブの配信はございません。当日リアルタイムでご参加ください。</td></tr>
       <tr><th>お申込みの流れ</th><td>お申込み（お支払い方法を選択） → ご入金方法をメールでご案内 → ご入金確認後に参加URLをご案内</td></tr>
     </table>
+    <div class="notice"><b>お申込み前にご確認ください</b><ul><li><b>銀行振込</b>：開始12時間前までに着金をお願いします。期限を過ぎると参加手続きができません。12時間前を過ぎてのお申込みは、クレジットカード決済をご利用ください。</li><li><b>アーカイブ</b>：録画・アーカイブの配信はございません。当日リアルタイムでご参加ください。</li><li><b>お顔出し</b>：実践形式のため、Zoomでお顔出し（カメラON）ができる方のみご参加いただけます。</li></ul></div>
     <h3>開催日時</h3>
     <ul class="slots" id="slots"></ul>
     <p class="note">ご希望の日程は、申込みフォームでお選びください。</p>
+    <p class="agree">お申込みの前に、<a href="kiyaku.html#terms">受講規約・キャンセル規定</a>、<a href="kiyaku.html#tokushoho">特定商取引法に基づく表記</a>、<a href="kiyaku.html#privacy">プライバシーポリシー</a>をご確認ください。お申込みをもって、内容に同意いただいたものとさせていただきます。</p>
     <div class="cta-row">
       <a class="btn pulse" data-form href="#" target="_blank" rel="noopener">日程を選んで1Dayセミナーに申し込む</a>
     </div>
@@ -404,9 +485,11 @@ footer a{color:var(--gold-l)}
     <h2>よくあるご質問</h2>
     <details><summary>人前で話すのが苦手ですが、参加できますか？</summary><p>はい、大丈夫です。初めて学ぶ方にも分かりやすい内容で構成しており、ワークを通して少しずつ自信をつけていただけます。</p></details>
     <details><summary>どの日程に参加すればいいですか？</summary><p>内容はすべて同じです。ご都合の良い日程を1つお選びください。</p></details>
-    <details><summary>顔出し参加は必須ですか？</summary><p>はい。実践形式のセミナーのため、お顔を出して参加できる方が対象です。</p></details>
+    <details><summary>顔出し参加は必須ですか？</summary><p>はい。実践形式のセミナーのため、Zoomでお顔出し（カメラON）ができる方のみご参加いただけます。</p></details>
+    <details><summary>録画・アーカイブはありますか？</summary><p>録画・アーカイブの配信はございません。当日リアルタイムでご参加ください。</p></details>
     <details><summary>書籍を持っていなくても受講できますか？</summary><p>はい、書籍をお持ちでない方もご参加いただけます。あわせてお読みいただくと、より理解が深まります。</p></details>
-    <details><summary>お支払い方法を教えてください。</summary><p>クレジットカードまたは銀行振込のいずれかを、お申込み時にお選びいただけます。お申込み後、ご入金方法についてメールでご案内します。ご入金の確認後、参加URLをお送りします。</p></details>
+    <details><summary>お支払い方法を教えてください。</summary><p>クレジットカードまたは銀行振込のいずれかを、お申込み時にお選びいただけます。お申込み後、ご入金方法についてメールでご案内します。ご入金の確認後、参加URLをお送りします。</p><p>銀行振込は、セミナー開始の12時間前までに着金をお願いします。期限を過ぎると入金確認が間に合わず、参加手続きができません。12時間前を過ぎてのお申込みは、クレジットカード決済をご利用ください。</p></details>
+    <details><summary>キャンセル・返金はできますか？</summary><p>原則として、返金はいたしません。ただし、やむを得ない場合で、お席が確保できるときは、別日程に振替できる場合がございますので、ご連絡ください。詳しくは<a href="kiyaku.html#terms">受講規約・キャンセル規定</a>をご確認ください。</p></details>
     <details><summary>申込み方法を教えてください。</summary><p>ページ内の「日程を選んで1Dayセミナーに申し込む」ボタンから、申込みフォームへお進みください。フォーム内でご希望の日程をお選びいただけます。</p></details>
   </div>
 </section>
@@ -418,6 +501,7 @@ footer a{color:var(--gold-l)}
     <h2>あなたの想いを、<br><em>あなたの言葉</em>で。</h2>
     <p>宝来式人生を変えるトークメソッド「ストーリートーキング®」<br>オンライン／3時間／3,300円（税込）／各回8名／顔出し参加</p>
     <div class="cta-row"><a class="btn pulse" data-form href="#" target="_blank" rel="noopener">日程を選んで1Dayセミナーに申し込む</a></div>
+    <p class="agree on-dark">お申込みの前に、<a href="kiyaku.html#terms">受講規約・キャンセル規定</a>をご確認ください。</p>
   </div>
 </section>
 </main>
@@ -425,8 +509,9 @@ footer a{color:var(--gold-l)}
 <footer>
   <div class="wrap">
     <p>ストーリートーキング® 1Dayセミナー<br>講師：宝来光子／主催：株式会社belleVie</p>
+    <p><a href="kiyaku.html#terms">受講規約・キャンセル規定</a>　｜　<a href="kiyaku.html#tokushoho">特定商取引法に基づく表記</a>　｜　<a href="kiyaku.html#privacy">プライバシーポリシー</a></p>
     <p>お問い合わせ：<a href="mailto:info@bellevie.co.jp">info@bellevie.co.jp</a></p>
-    <p>© Story Talking®</p>
+    <p>© Story Talking® Academy</p>
   </div>
 </footer>
 
