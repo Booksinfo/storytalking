@@ -114,11 +114,13 @@ header.top a{color:#fff;text-shadow:0 1px 4px rgba(11,22,48,.8);font-size:14px;m
 .case-head{font-family:var(--serif);color:var(--navy);font-size:19px;margin:24px 0 14px;display:flex;align-items:center;gap:10px}
 .case-head small{font-family:var(--sans);font-size:13px;color:var(--ink-s)}
 .pair{display:grid;gap:16px}
-.clip{background:#fff;border:1px solid var(--line);border-radius:10px;padding:20px;border-top:4px solid #8a8f9c}
+.pair{align-items:stretch}
+.clip{display:flex;flex-direction:column;align-items:flex-start;background:#fff;border:1px solid var(--line);border-radius:10px;padding:20px;border-top:4px solid #8a8f9c}
 .clip.after{border-top-color:var(--gold)}
 .clip .tag{display:inline-block;font-weight:700;font-size:13px;padding:2px 14px;border-radius:99px;margin-bottom:8px;color:#fff;background:#6b7180}
 .clip.after .tag{background:var(--navy)}
 .clip audio{width:100%;margin:8px 0 0}
+.clip .note{margin:8px 0 0}
 .clip .dur{font-size:13px;color:var(--ink-s)}
 @media(min-width:760px){.pair{grid-template-columns:1fr 1fr}}
 
@@ -143,7 +145,7 @@ header.top a{color:#fff;text-shadow:0 1px 4px rgba(11,22,48,.8);font-size:14px;m
 @media(min-width:900px){.method-head{grid-template-columns:minmax(0,1.05fr) minmax(0,1fr);gap:56px}.mh-text h2{margin-bottom:20px}}
 @media(max-width:899px){.mh-photo{margin:0 12px 0 0}}
 /* learn */
-.after{display:inline-block;background:#fff;border-left:4px solid var(--gold);padding:10px 16px;margin:0 0 24px;font-weight:500;color:var(--navy)}
+.next-note{display:inline-block;background:#fff;border-left:4px solid var(--gold);padding:10px 16px;margin:0 0 24px;font-weight:500;color:var(--navy)}
 .learn{display:grid;gap:16px;counter-reset:n;padding:0;list-style:none;margin:0}
 .learn li{counter-increment:n;background:#fff;border:1px solid var(--line);border-radius:10px;padding:20px 20px 20px 66px;position:relative}
 .learn li:before{content:"0" counter(n);position:absolute;left:18px;top:16px;font-family:var(--serif);font-size:26px;color:var(--gold);font-weight:700}
@@ -385,7 +387,7 @@ footer a{color:var(--gold-l)}
     <p class="eyebrow">CURRICULUM</p>
     <h2>1Day体験セミナーで<br>身につく3つのこと</h2>
     <p style="max-width:760px">“売り込まずに選ばれる”伝え方の入り口を、実践を通して体感いただけます。</p>
-    <p class="after">セミナー終了後、ストーリートーキング®アカデミー13期についてのご紹介をいたします。</p>
+    <p class="next-note">セミナー終了後、ストーリートーキング®アカデミー13期についてのご紹介をいたします。</p>
     <ol class="learn">
       <li><h3>聞き手を引き込む<br>ストーリーの作り方</h3><p>ストーリートーキング®の基本構成を、実例を通してインプット。</p></li>
       <li><h3>感情を揺さぶる<br>言葉の選び方</h3><p>相手の心を動かす語彙・表現の選び方を体感的に学ぶ。</p></li>
