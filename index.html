@@ -189,6 +189,9 @@ header.top a{color:#fff;text-shadow:0 1px 4px rgba(11,22,48,.8);font-size:14px;m
 .slots{list-style:none;margin:0 0 8px;padding:0;display:grid;gap:8px}
 .slots li{display:flex;justify-content:space-between;align-items:baseline;gap:12px;background:#fff;border:1px solid var(--line);border-left:4px solid var(--gold);padding:14px 18px}
 .slots .d{font-family:var(--serif);font-weight:700;color:var(--navy);font-size:18px}
+.slots li.closed{border-left-color:#b9b4a8;background:#f4f2ec}
+.slots li.closed s{text-decoration-thickness:2px;color:#7a7468}
+.slots .end{font-family:var(--sans);font-size:14px;font-weight:700;color:var(--red);margin-left:8px;white-space:nowrap}
 .slots .tm{color:var(--ink-s);font-size:16px;white-space:nowrap}
 .info{width:100%;border-collapse:collapse;margin:0 0 32px;font-size:15px;background:#fff}
 .info th,.info td{border:1px solid var(--line);padding:12px 14px;text-align:left;vertical-align:top}
@@ -529,9 +532,10 @@ footer a{color:var(--gold-l)}
 /* ===== 設定（次回募集はここを書き換え） ===== */
 const CONFIG = {
   formUrl: "https://kansya1.jp/p/r/wMOOpSOH",
+  // 各枠: [日付, 時間, 状態]　状態に "closed" を入れると、打消し線と「（終了しました）」表示になります
   slots: [
-    ["10月15日（木）","13:00〜16:00"],
-    ["10月15日（木）","19:00〜22:00"],
+    ["10月15日（木）","13:00〜16:00","closed"],
+    ["10月15日（木）","19:00〜22:00","closed"],
     ["10月19日（月）","14:00〜17:00"],
     ["10月23日（金）","13:00〜16:00"],
     ["10月23日（金）","19:00〜22:00"],
@@ -544,7 +548,10 @@ const CONFIG = {
 
 document.querySelectorAll("[data-form]").forEach(a=>a.href=CONFIG.formUrl);
 const ul=document.getElementById("slots");
-CONFIG.slots.forEach(([d,t])=>{const li=document.createElement("li");li.innerHTML=`<span class="d">${d}</span><span class="tm">${t}</span>`;ul.appendChild(li)});
+CONFIG.slots.forEach(([d,t,s])=>{const li=document.createElement("li");
+  if(s==="closed"){li.className="closed";li.innerHTML=`<span class="d"><s>${d}</s><span class="end">（終了しました）</span></span><span class="tm"><s>${t}</s></span>`}
+  else li.innerHTML=`<span class="d">${d}</span><span class="tm">${t}</span>`;
+  ul.appendChild(li)});
 
 /* ヒーロー動画：自動再生(消音)→ボタンで音声オン */
 const hero=document.getElementById("heroVideo"), unmute=document.getElementById("unmute");
