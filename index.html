@@ -194,6 +194,8 @@ header.top a{color:#fff;text-shadow:0 1px 4px rgba(11,22,48,.8);font-size:14px;m
 .slots .end{font-family:var(--sans);font-size:14px;font-weight:700;color:var(--red);margin-left:8px;white-space:nowrap}
 .slots li.full{border-left-color:var(--red)}
 .slots li.full .end{font-size:16px;color:#c0182c}
+.slots li.few{border-left-color:var(--red)}
+.slots li.few .end{display:inline-block;background:var(--red);color:#fff;font-size:13px;padding:1px 10px;border-radius:99px;vertical-align:2px}
 .slots .tm{color:var(--ink-s);font-size:16px;white-space:nowrap}
 .info{width:100%;border-collapse:collapse;margin:0 0 32px;font-size:15px;background:#fff}
 .info th,.info td{border:1px solid var(--line);padding:12px 14px;text-align:left;vertical-align:top}
@@ -534,7 +536,7 @@ footer a{color:var(--gold-l)}
 /* ===== 設定（次回募集はここを書き換え） ===== */
 const CONFIG = {
   formUrl: "https://kansya1.jp/p/r/wMOOpSOH",
-  // 各枠: [日付, 時間, 状態]　"closed" = 打消し線と「（終了しました）」／"full" = 赤字で「満員御礼」
+  // 各枠: [日付, 時間, 状態, 表示文言]　"closed" = 打消し線と「（終了しました）」／"full" = 赤字で「満員御礼」（4番目で文言変更可）／"few" = 残席表示（例："残席1"）
   slots: [
     ["10月15日（木）","13:00〜16:00","closed"],
     ["10月15日（木）","19:00〜22:00","closed"],
@@ -542,17 +544,18 @@ const CONFIG = {
     ["10月23日（金）","13:00〜16:00","closed"],
     ["10月23日（金）","19:00〜22:00","closed"],
     ["10月26日（月）","19:00〜22:00","closed"],
-    ["10月29日（木）","13:00〜16:00"],
-    ["11月3日（火）", "13:00〜16:00"],
-    ["11月11日（水）","19:00〜22:00"]
+    ["10月29日（木）","13:00〜16:00","few","残席1"],
+    ["11月3日（火）", "13:00〜16:00","few","残席1"],
+    ["11月11日（水）","19:00〜22:00","full","満席"]
   ]
 };
 
 document.querySelectorAll("[data-form]").forEach(a=>a.href=CONFIG.formUrl);
 const ul=document.getElementById("slots");
-CONFIG.slots.forEach(([d,t,s])=>{const li=document.createElement("li");
+CONFIG.slots.forEach(([d,t,s,label])=>{const li=document.createElement("li");
   if(s==="closed"){li.className="closed";li.innerHTML=`<span class="d"><s>${d}</s><span class="end">（終了しました）</span></span><span class="tm"><s>${t}</s></span>`}
-  else if(s==="full"){li.className="full";li.innerHTML=`<span class="d">${d}<span class="end">満員御礼</span></span><span class="tm">${t}</span>`}
+  else if(s==="full"){li.className="full";li.innerHTML=`<span class="d">${d}<span class="end">${label||"満員御礼"}</span></span><span class="tm">${t}</span>`}
+  else if(s==="few"){li.className="few";li.innerHTML=`<span class="d">${d}<span class="end">${label||"残りわずか"}</span></span><span class="tm">${t}</span>`}
   else li.innerHTML=`<span class="d">${d}</span><span class="tm">${t}</span>`;
   ul.appendChild(li)});
 
