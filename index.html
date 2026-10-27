@@ -176,6 +176,15 @@ header.top a{color:#fff;text-shadow:0 1px 4px rgba(11,22,48,.8);font-size:14px;m
 .poster-btn .play{width:76px;height:76px;border-radius:50%;background:rgba(255,255,255,.14);border:2px solid var(--gold-l);display:grid;place-items:center}
 .poster-btn .play:after{content:"";border-left:22px solid var(--gold-l);border-top:13px solid transparent;border-bottom:13px solid transparent;margin-left:6px}
 .poster-btn .t{font-weight:700;font-size:15px}
+/* shorts（縦型の受講生の声 3本） */
+.shorts{display:flex;gap:14px;overflow-x:auto;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;margin:24px -20px 0;padding:4px 20px 12px;scrollbar-width:thin}
+.short{flex:0 0 68%;max-width:300px;margin:0;scroll-snap-align:center}
+.short-frame{position:relative;aspect-ratio:9/16;background:#000;border-radius:10px;overflow:hidden;border:1px solid var(--gold-l);box-shadow:0 8px 20px rgba(20,38,74,.16)}
+.short-frame video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;background:#000}
+.short figcaption{text-align:center;font-weight:700;color:var(--navy);font-size:15px;margin-top:10px;line-height:1.5}
+.short figcaption small{display:block;font-weight:400;font-size:12px;color:var(--gold-d)}
+.shorts-hint{text-align:center;margin:4px 0 0}
+@media(min-width:760px){.shorts{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;overflow:visible;margin:28px auto 0;padding:0;max-width:880px}.short{max-width:none}.shorts-hint{display:none}}
 .voices{display:grid;gap:16px;margin-top:48px}
 .voice{background:#fff;border:1px solid var(--line);border-radius:10px;padding:22px;position:relative}
 .voice:before{content:"“";position:absolute;right:16px;top:-6px;font-family:var(--serif);font-size:64px;color:var(--gold-l);line-height:1}
@@ -440,12 +449,21 @@ footer a{color:var(--gold-l)}
     <p class="eyebrow">VOICE</p>
     <h2>体験した方の声をお聞きください。</h2>
     <p style="max-width:760px">実際にストーリートーキング®を体験した方の声を、動画でご紹介します。ご自身の想いや魅力を伝えるための一歩を考える参考に、ご覧ください。</p>
-    <div class="player">
-      <video id="voiceVideo" controls preload="metadata" playsinline poster="assets/voice-poster.jpg" aria-label="体験した方の声">
-        <source src="assets/voice.mp4" type="video/mp4">
-        動画を再生できない場合は、<a href="assets/voice.mp4">こちらから視聴</a>してください。
-      </video>
+    <div class="shorts">
+      <figure class="short">
+        <div class="short-frame"><video controls preload="none" playsinline controlslist="nodownload" poster="assets/voice-short1.jpg" aria-label="受講生の声：太陽さん"><source src="assets/voice-short1.mp4" type="video/mp4"></video></div>
+        <figcaption><small>ストーリートーキング®認定講師</small>太陽さん</figcaption>
+      </figure>
+      <figure class="short">
+        <div class="short-frame"><video controls preload="none" playsinline controlslist="nodownload" poster="assets/voice-short2.jpg" aria-label="受講生の声：山本由美子さん"><source src="assets/voice-short2.mp4" type="video/mp4"></video></div>
+        <figcaption><small>ストーリートーキング®認定講師</small>山本由美子さん</figcaption>
+      </figure>
+      <figure class="short">
+        <div class="short-frame"><video controls preload="none" playsinline controlslist="nodownload" poster="assets/voice-short3.jpg" aria-label="受講生の声：金本麻理子さん"><source src="assets/voice-short3.mp4" type="video/mp4"></video></div>
+        <figcaption><small>ストーリートーキング®認定講師</small>金本麻理子さん</figcaption>
+      </figure>
     </div>
+    <p class="note shorts-hint">← 横にスワイプして3本ご覧いただけます →</p>
 
     <div class="voices">
       <article class="voice"><div class="no">Voice.01</div><div class="who"><small>会社員</small>M.S さん</div><p>この講座を受講して、私の日常は劇的に変わりました。以前は、自分の考えや経験を人に伝えるのが苦手で、話しても「結局何が言いたいの？」という顔をされることがよくありました。しかし、この講座でストーリーの構成要素、感情を動かす語り口、そして聞き手を惹きつける表現方法を学んだことで、まるで魔法にかかったようです。</p></article>
@@ -569,11 +587,11 @@ new IntersectionObserver(es=>{es.forEach(e=>{ if(!e.isIntersecting && !hero.mute
 
 /* 同時再生を防ぐ */
 const audios=[...document.querySelectorAll("audio")];
-const voice=document.getElementById("voiceVideo");
+const shorts=[...document.querySelectorAll(".short video")];
 function stopAll(except){
-  [hero,voice,...audios].forEach(m=>{ if(m!==except && !m.paused) m.pause(); });
+  [hero,...shorts,...audios].forEach(m=>{ if(m!==except && !m.paused) m.pause(); });
 }
-[...audios,voice].forEach(a=>a.addEventListener("play",()=>stopAll(a)));
+[...audios,...shorts].forEach(a=>a.addEventListener("play",()=>stopAll(a)));
 hero.addEventListener("play",()=>{ if(!hero.muted) stopAll(hero); });
 
 /* 固定ボタン：トップ・日程欄・最終CTAが見えている間は隠す */
