@@ -6,7 +6,7 @@
 <title>ストーリートーキング®1Dayセミナー＆アカデミー13期説明会｜宝来光子</title>
 <meta name="description" content="宝来式人生を変えるトークメソッド「ストーリートーキング®」。1分ストーリーを考え、実際に話しながら学ぶ3時間のオンラインセミナー。参加費3,300円（税込）・各回8名。">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&family=Noto+Serif+JP:wght@500;700;900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&family=Noto+Serif+JP:wght@500;700;900&display=swap" rel="stylesheet">
 <style>
 :root{
   --navy:#14264a; --navy-d:#0b1630; --navy-l:#1d3463;
@@ -195,17 +195,44 @@ header.top a{color:#fff;text-shadow:0 1px 4px rgba(11,22,48,.8);font-size:14px;m
 @media(min-width:760px){.voices{grid-template-columns:1fr 1fr}}
 
 /* schedule */
-.slots{list-style:none;margin:0 0 8px;padding:0;display:grid;gap:8px}
-.slots li{display:flex;justify-content:space-between;align-items:baseline;gap:12px;background:#fff;border:1px solid var(--line);border-left:4px solid var(--gold);padding:14px 18px}
-.slots .d{font-family:var(--serif);font-weight:700;color:var(--navy);font-size:18px}
-.slots li.closed{border-left-color:#b9b4a8;background:#f4f2ec}
-.slots li.closed s{text-decoration-thickness:2px;color:#7a7468}
-.slots .end{font-family:var(--sans);font-size:14px;font-weight:700;color:var(--red);margin-left:8px;white-space:nowrap}
-.slots li.full{border-left-color:var(--red)}
-.slots li.full .end{font-size:16px;color:#c0182c}
-.slots li.few{border-left-color:var(--red)}
-.slots li.few .end{display:inline-block;background:var(--red);color:#fff;font-size:13px;padding:1px 10px;border-radius:99px;vertical-align:2px}
-.slots .tm{color:var(--ink-s);font-size:16px;white-space:nowrap}
+/* ===== 開催日時（目立つ表） ===== */
+.slots{list-style:none;margin:0 0 10px;padding:0;display:grid;gap:10px}
+.slots li{display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:center;gap:10px 14px;background:#fff;border:2px solid var(--line);border-radius:10px;padding:14px 16px;position:relative}
+.slots .dt{min-width:0;line-height:1.45}
+.slots .d{display:block;font-family:var(--sans);font-weight:900;color:var(--navy);font-size:clamp(17px,4.6vw,21px);letter-spacing:.02em}
+.slots .tm{display:block;font-family:var(--sans);font-weight:700;color:var(--ink);font-size:clamp(15px,4vw,18px)}
+.slots .st{font-family:var(--sans);font-weight:900;white-space:nowrap;text-align:center;line-height:1.2;border-radius:8px;padding:10px 14px;min-width:6.2em;font-size:clamp(18px,5vw,24px)}
+.slots .st small{display:block;font-size:11px;font-weight:700;letter-spacing:.04em;margin-bottom:2px}
+/* 終了 */
+.slots li.closed{background:#f1efea;border-color:#e2ded5;padding:8px 16px}
+.slots li.closed .d,.slots li.closed .tm{font-size:13px;font-weight:500;color:#8a8478;display:inline;margin-right:8px;white-space:nowrap}
+@media(min-width:600px){.slots li.closed .d,.slots li.closed .tm{font-size:14px}}
+.slots li.closed s{text-decoration-thickness:2px}
+.slots li.closed .st{font-size:11px;font-weight:700;color:#8a8478;background:none;padding:0;min-width:0}
+/* 残席わずか */
+.slots li.few{background:#fffbe0;border-color:#ff2d2d;box-shadow:0 4px 14px rgba(255,45,45,.18)}
+.slots li.few .st{background:#ffe600;color:#e60012;border:3px solid #e60012;animation:blink 1.4s ease-in-out infinite}
+.slots li.few .st small{color:#e60012}
+/* 満席 */
+.slots li.full{background:#fff0f1;border-color:#e60012}
+.slots li.full .st{background:#e60012;color:#fff;transform:rotate(-3deg);box-shadow:0 3px 0 #9d000c}
+.slots li.full .d,.slots li.full .tm{color:#8b3a42}
+/* 追加開催・受付中 */
+.slots li.open{border-color:#1c9b5f}
+.slots li.open .st{background:#14a05c;color:#fff;box-shadow:0 3px 0 #0d6b3d}
+.slots .new{display:inline-block;font-family:var(--sans);font-weight:900;font-size:12px;color:#fff;background:#ff6a00;border-radius:4px;padding:1px 8px;margin:0 0 4px;letter-spacing:.06em}
+@keyframes blink{0%,100%{transform:scale(1)}50%{transform:scale(1.07)}}
+.urgent{font-family:var(--sans);font-weight:900;color:#e60012;font-size:clamp(16px,4.4vw,20px);text-align:center;margin:0 0 14px;line-height:1.5}
+.urgent span{background:linear-gradient(transparent 60%,#ffe600 60%)}
+/* 追加開催決定バナー */
+.extra{background:linear-gradient(180deg,#fff7d6,#fffdf4);border-bottom:1px solid var(--line);padding:40px 0 44px}
+.extra-head{text-align:center;margin:0 0 20px}
+.extra-head .burst{display:inline-block;font-family:var(--sans);font-weight:900;font-size:13px;letter-spacing:.2em;color:#fff;background:#e60012;padding:3px 16px;border-radius:99px;margin-bottom:10px}
+.extra-head h2{font-family:var(--sans);font-weight:900;color:#e60012;font-size:clamp(25px,7vw,40px);line-height:1.35;margin:0 0 6px;text-shadow:2px 2px 0 #fff}
+.extra-head h2 b{background:linear-gradient(transparent 62%,#ffe600 62%)}
+.extra-head p{font-family:var(--sans);font-weight:700;color:var(--navy);font-size:clamp(16px,4.4vw,20px);margin:0}
+.extra .cta-row{margin-top:22px}
+@media(prefers-reduced-motion:reduce){.slots li.few .st{animation:none}}
 .info{width:100%;border-collapse:collapse;margin:0 0 32px;font-size:15px;background:#fff}
 .info th,.info td{border:1px solid var(--line);padding:12px 14px;text-align:left;vertical-align:top}
 .info th{width:8em;background:var(--cream-d);color:var(--navy);font-weight:500}
@@ -276,11 +303,25 @@ footer a{color:var(--gold-l)}
     </ul>
     <div class="cta-row">
       <a class="btn pulse" data-form href="#" target="_blank" rel="noopener">日程を選んで1Dayセミナーに申し込む</a>
-      <p class="note" style="margin-top:12px">2026年10月15日〜11月11日の9枠から選択／実践セミナーのため、お顔を出して参加できる方が対象です。</p>
+      <p class="note" style="margin-top:12px">2026年10月15日〜11月14日の全10枠（追加開催あり）／実践セミナーのため、お顔を出して参加できる方が対象です。</p>
       <a class="link sub" href="#compare">学ぶ前と学んだあとの声を聴く ↓</a>
     </div>
   </div>
 </div>
+
+<!-- ===== 追加開催決定 ===== -->
+<section class="extra" id="extra">
+  <div class="wrap narrow">
+    <div class="extra-head">
+      <span class="burst">NEWS</span>
+      <h2><b>好評により、</b><br><b>追加開催決定！！</b></h2>
+      <p id="extraDate"></p>
+    </div>
+    <p class="urgent"><span class="ib">満席の回も出ています。</span><span class="ib">お申込みはお早めに！</span></p>
+    <ul class="slots" data-slots></ul>
+    <div class="cta-row"><a class="btn pulse" data-form href="#" target="_blank" rel="noopener">日程を選んで1Dayセミナーに申し込む</a></div>
+  </div>
+</section>
 
 <!-- ===== 02 悩み ===== -->
 <section>
@@ -502,7 +543,8 @@ footer a{color:var(--gold-l)}
     </table>
     <div class="notice"><b>お申込み前にご確認ください</b><ul><li><b>銀行振込</b>：開始12時間前までに着金をお願いします。期限を過ぎると参加手続きができません。12時間前を過ぎてのお申込みは、クレジットカード決済をご利用ください。</li><li><b>アーカイブ</b>：録画・アーカイブの配信はございません。当日リアルタイムでご参加ください。</li><li><b>お顔出し</b>：実践形式のため、Zoomでお顔出し（カメラON）ができる方のみご参加いただけます。</li></ul></div>
     <h3>開催日時</h3>
-    <ul class="slots" id="slots"></ul>
+    <p class="urgent"><span class="ib">満席の回も出ています。</span><span class="ib">お申込みはお早めに！</span></p>
+    <ul class="slots" id="slots" data-slots></ul>
     <p class="note">ご希望の日程は、申込みフォームでお選びください。</p>
     <p class="agree">お申込みの前に、<a href="kiyaku.html#terms">受講規約・キャンセル規定</a>、<a href="kiyaku.html#tokushoho">特定商取引法に基づく表記</a>、<a href="kiyaku.html#privacy">プライバシーポリシー</a>をご確認ください。お申込みをもって、内容に同意いただいたものとさせていただきます。</p>
     <div class="cta-row">
@@ -554,7 +596,12 @@ footer a{color:var(--gold-l)}
 /* ===== 設定（次回募集はここを書き換え） ===== */
 const CONFIG = {
   formUrl: "https://kansya1.jp/p/r/wMOOpSOH",
-  // 各枠: [日付, 時間, 状態, 表示文言]　"closed" = 打消し線と「（終了しました）」／"full" = 赤字で「満員御礼」（4番目で文言変更可）／"few" = 残席表示（例："残席1"）
+  // 各枠: [日付, 時間, 状態, 表示文言]
+  //   "closed" = グレー＋打消し線「（終了しました）」
+  //   "full"   = 赤地に白の大きな「満席！」
+  //   "few"    = 黄色地に赤の大きな残席表示（例："残席1"）
+  //   "new"    = オレンジの「追加開催」マーク付き・緑の「受付中」（4番目で文言変更可）
+  //   省略     = 緑の「受付中」
   slots: [
     ["10月15日（木）","13:00〜16:00","closed"],
     ["10月15日（木）","19:00〜22:00","closed"],
@@ -564,18 +611,23 @@ const CONFIG = {
     ["10月26日（月）","19:00〜22:00","closed"],
     ["10月29日（木）","13:00〜16:00","few","残席1"],
     ["11月3日（火）", "13:00〜16:00","few","残席1"],
-    ["11月11日（水）","19:00〜22:00","full","満席"]
+    ["11月11日（水）","19:00〜22:00","full","満席！"],
+    ["11月14日（土）","9:00〜12:00","new"]
   ]
 };
 
 document.querySelectorAll("[data-form]").forEach(a=>a.href=CONFIG.formUrl);
-const ul=document.getElementById("slots");
-CONFIG.slots.forEach(([d,t,s,label])=>{const li=document.createElement("li");
-  if(s==="closed"){li.className="closed";li.innerHTML=`<span class="d"><s>${d}</s><span class="end">（終了しました）</span></span><span class="tm"><s>${t}</s></span>`}
-  else if(s==="full"){li.className="full";li.innerHTML=`<span class="d">${d}<span class="end">${label||"満員御礼"}</span></span><span class="tm">${t}</span>`}
-  else if(s==="few"){li.className="few";li.innerHTML=`<span class="d">${d}<span class="end">${label||"残りわずか"}</span></span><span class="tm">${t}</span>`}
-  else li.innerHTML=`<span class="d">${d}</span><span class="tm">${t}</span>`;
-  ul.appendChild(li)});
+function slotHTML([d,t,s,label]){
+  if(s==="closed") return `<li class="closed"><span class="dt"><span class="d"><s>${d}</s></span><span class="tm"><s>${t}</s></span></span><span class="st">（終了しました）</span></li>`;
+  if(s==="full") return `<li class="full"><span class="dt"><span class="d">${d}</span><span class="tm">${t}</span></span><span class="st">${label||"満席！"}</span></li>`;
+  if(s==="few") return `<li class="few"><span class="dt"><span class="d">${d}</span><span class="tm">${t}</span></span><span class="st"><small>残りわずか！</small>${label||"残席わずか"}</span></li>`;
+  const nw = s==="new" ? `<span class="new">追加開催</span>` : "";
+  return `<li class="open"><span class="dt">${nw}<span class="d">${d}</span><span class="tm">${t}</span></span><span class="st">${label||"受付中"}</span></li>`;
+}
+const slotsHTML=CONFIG.slots.map(slotHTML).join("");
+document.querySelectorAll("[data-slots]").forEach(ul=>ul.innerHTML=slotsHTML);
+const added=CONFIG.slots.filter(x=>x[2]==="new");
+document.getElementById("extraDate").textContent = added.length ? "追加日程："+added.map(x=>x[0]+" "+x[1]).join("／") : "";
 
 /* ヒーロー動画：自動再生(消音)→ボタンで音声オン */
 const hero=document.getElementById("heroVideo"), unmute=document.getElementById("unmute");
@@ -600,7 +652,7 @@ const io=new IntersectionObserver(es=>{
   es.forEach(e=>e.isIntersecting?vis.add(e.target):vis.delete(e.target));
   sticky.classList.toggle("hide",vis.size>0);
 },{threshold:.15});
-[document.querySelector(".infoband"),document.getElementById("schedule"),document.querySelector(".final")].forEach(t=>io.observe(t));
+[document.querySelector(".infoband"),document.getElementById("extra"),document.getElementById("schedule"),document.querySelector(".final")].forEach(t=>io.observe(t));
 </script>
 </body>
 </html>
