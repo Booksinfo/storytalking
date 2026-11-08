@@ -279,9 +279,9 @@ footer a{color:var(--gold-l)}
 <!-- ===== 01 HERO ===== -->
 <div class="hero" id="top">
   <div class="hero-media">
-    <video id="heroVideo" autoplay muted playsinline preload="auto" controls controlslist="nodownload" poster="assets/intro-poster.jpg" aria-label="宝来光子先生の紹介動画">
-      <source src="assets/intro.mp4" type="video/mp4">
-      動画を再生できない場合は、<a href="assets/intro.mp4">こちらから視聴</a>してください。
+    <video id="heroVideo" autoplay muted playsinline preload="auto" controls controlslist="nodownload" poster="assets/pr-poster.jpg" aria-label="ストーリートーキング アカデミー 紹介動画">
+      <source src="assets/pr.mp4" type="video/mp4">
+      動画を再生できない場合は、<a href="assets/pr.mp4">こちらから視聴</a>してください。
     </video>
     <button class="unmute" id="unmute" type="button" aria-label="音声をオンにして最初から再生する">🔊 音を出して最初から見る</button>
   </div>
@@ -303,7 +303,7 @@ footer a{color:var(--gold-l)}
     </ul>
     <div class="cta-row">
       <a class="btn pulse" data-form href="#" target="_blank" rel="noopener">日程を選んで1Dayセミナーに申し込む</a>
-      <p class="note" style="margin-top:12px">2026年10月15日〜11月14日の全10枠（追加開催あり）／実践セミナーのため、お顔を出して参加できる方が対象です。</p>
+      <p class="note" style="margin-top:12px">2026年10月15日〜11月22日の全12枠（追加開催あり）／実践セミナーのため、お顔を出して参加できる方が対象です。</p>
       <a class="link sub" href="#compare">学ぶ前と学んだあとの声を聴く ↓</a>
     </div>
   </div>
@@ -612,7 +612,9 @@ const CONFIG = {
     ["10月29日（木）","13:00〜16:00","closed"],
     ["11月3日（火）", "13:00〜16:00","closed"],
     ["11月11日（水）","19:00〜22:00","full","満席！"],
-    ["11月14日（土）","9:00〜12:00","new"]
+    ["11月14日（土）","9:00〜12:00","full","満席！"],
+    ["11月20日（金）","13:00〜16:00","new"],
+    ["11月22日（日）","10:00〜13:00","new"]
   ]
 };
 
@@ -627,7 +629,7 @@ function slotHTML([d,t,s,label]){
 const slotsHTML=CONFIG.slots.map(slotHTML).join("");
 document.querySelectorAll("[data-slots]").forEach(ul=>ul.innerHTML=slotsHTML);
 const added=CONFIG.slots.filter(x=>x[2]==="new");
-document.getElementById("extraDate").textContent = added.length ? "追加日程："+added.map(x=>x[0]+" "+x[1]).join("／") : "";
+document.getElementById("extraDate").innerHTML = added.length ? "追加日程：<br>"+added.map(x=>x[0]+" "+x[1]).join("<br>") : "";
 
 /* ヒーロー動画：自動再生(消音)→ボタンで音声オン */
 const hero=document.getElementById("heroVideo"), unmute=document.getElementById("unmute");
